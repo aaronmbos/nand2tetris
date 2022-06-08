@@ -11,7 +11,8 @@
 CHIP And16 {
     IN a[16], b[16];
     OUT out[16];
-
+    
+    // Could have just used And(a=a[i], b=b[i], out=out[i])
     PARTS:
     Nand(a=a[0], b=b[0], out=w0);
     Not(in=w0, out=out[0]);
