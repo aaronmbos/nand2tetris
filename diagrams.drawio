@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-21T13:33:31.253Z" agent="5.0 (Macintosh)" etag="dtD80upEKfFwUof67sYl" version="20.0.1" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-06-21T13:34:49.092Z" agent="5.0 (Macintosh)" etag="9gKv8ZRl6LY2KMHcOco7" version="20.0.1" type="github" pages="7">
   <diagram id="JIbMGXdBo22jc9gWvNrv" name="NAND">
     <mxGraphModel dx="946" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -639,6 +639,22 @@
         <mxCell id="6h7ilLV9X3mxfSpwkemT-1" value="&lt;b&gt;XOR&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=JetBrains Mono;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="295" y="125" width="60" height="30" as="geometry" />
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="8sMX0dKXl9N2Sum3S6CM" name="MUX">
+    <mxGraphModel dx="946" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="axETXr1PTk0kl3CTAjJj" name="DMUX">
+    <mxGraphModel dx="946" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
