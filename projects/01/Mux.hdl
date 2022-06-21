@@ -8,6 +8,14 @@
  * out = a if sel == 0
  *       b otherwise
  */
+ 
+ /**
+  * Reduced implementation:
+  *	Not(in=sel,out=nsel);
+  * And(a=a,b=nsel,out=c);
+  * And(a=b,b=sel,out=d);
+  * Or(a=c,b=d,out=out);
+  */
 
 CHIP Mux {
     IN a, b, sel;
