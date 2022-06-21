@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-21T13:34:49.092Z" agent="5.0 (Macintosh)" etag="9gKv8ZRl6LY2KMHcOco7" version="20.0.1" type="github" pages="7">
+<mxfile host="app.diagrams.net" modified="2022-06-21T13:52:17.220Z" agent="5.0 (Macintosh)" etag="gyYN1DTrof-Kk3dNZV3i" version="20.0.1" type="github" pages="7">
   <diagram id="JIbMGXdBo22jc9gWvNrv" name="NAND">
     <mxGraphModel dx="946" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -630,8 +630,8 @@
         <mxCell id="jq7EQ7HgVWatoIpj7oog-30" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="269" y="270" width="330" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="jq7EQ7HgVWatoIpj7oog-31" value="&lt;font face=&quot;JetBrains Mono&quot;&gt;XOR(&lt;i&gt;a,b&lt;/i&gt;) = OR(AND(NOT(a),b), AND(NOT(b),a)&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="279" y="271" width="310" height="30" as="geometry" />
+        <mxCell id="jq7EQ7HgVWatoIpj7oog-31" value="&lt;font face=&quot;JetBrains Mono&quot;&gt;XOR(&lt;i&gt;a,b&lt;/i&gt;) = OR(AND(NOT(a),b), AND(NOT(b),a))&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="273" y="271" width="321" height="30" as="geometry" />
         </mxCell>
         <mxCell id="jq7EQ7HgVWatoIpj7oog-36" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.logic_gates.logic_gate;operation=xor;fontFamily=JetBrains Mono;" vertex="1" parent="1">
           <mxGeometry x="270" y="80" width="110" height="120" as="geometry" />
