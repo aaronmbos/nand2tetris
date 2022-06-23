@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-23T01:05:12.513Z" agent="5.0 (Macintosh)" etag="VSxELJf_ChmLUO6zKz5M" version="20.0.1" type="github" pages="7">
+<mxfile host="app.diagrams.net" modified="2022-06-23T01:07:58.510Z" agent="5.0 (Macintosh)" etag="twZa5H4PchNFuz4me9vg" version="20.0.1" type="github" pages="7">
   <diagram id="JIbMGXdBo22jc9gWvNrv" name="NAND">
     <mxGraphModel dx="946" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -648,7 +648,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="rOHQztOY-HzWtF0UON7x-1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBorderColor=none;fontFamily=JetBrains Mono;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="70" y="270" width="395" height="30" as="geometry" />
+          <mxGeometry x="74" y="230" width="395" height="30" as="geometry" />
         </mxCell>
         <mxCell id="rOHQztOY-HzWtF0UON7x-2" value="MUX(a,b,sel)" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fontStyle=1;align=center;fontSize=13;fontFamily=JetBrains Mono;" vertex="1" parent="1">
           <mxGeometry x="480" y="80" width="240" height="300" as="geometry" />
@@ -882,7 +882,7 @@
           <mxGeometry x="393" y="138" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="rOHQztOY-HzWtF0UON7x-18" value="MUX(&lt;i&gt;a,b,sel&lt;/i&gt;) = OR(AND(&lt;i&gt;a&lt;/i&gt;, NOT(&lt;i&gt;sel&lt;/i&gt;)), AND(&lt;i&gt;b&lt;/i&gt;, &lt;i&gt;sel&lt;/i&gt;))" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=JetBrains Mono;fontSize=13;labelBorderColor=none;" vertex="1" parent="1">
-          <mxGeometry x="73" y="270" width="389" height="30" as="geometry" />
+          <mxGeometry x="77" y="230" width="389" height="30" as="geometry" />
         </mxCell>
         <mxCell id="rOHQztOY-HzWtF0UON7x-19" value="a" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=JetBrains Mono;fontSize=13;fontStyle=2" vertex="1" parent="1">
           <mxGeometry x="190" y="80" width="60" height="30" as="geometry" />
@@ -917,7 +917,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="gloKL-8PmlSZp4hiJ1Q_-1" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBorderColor=none;fontFamily=JetBrains Mono;fontSize=13;" vertex="1" parent="1">
-          <mxGeometry x="228" y="240" width="424" height="30" as="geometry" />
+          <mxGeometry x="228" y="229" width="424" height="30" as="geometry" />
         </mxCell>
         <mxCell id="gloKL-8PmlSZp4hiJ1Q_-2" value="DMUX(in,sel)" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fontStyle=1;align=center;fontSize=13;fontFamily=JetBrains Mono;" vertex="1" parent="1">
           <mxGeometry x="480" y="80" width="180" height="120" as="geometry" />
@@ -998,7 +998,7 @@
           <mxGeometry x="200" y="110" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="gloKL-8PmlSZp4hiJ1Q_-54" value="DMUX(&lt;i&gt;in,sel&lt;/i&gt;) = {a=AND(in, NOT(sel)), b=AND(in, sel)}" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=JetBrains Mono;fontSize=13;labelBorderColor=none;" vertex="1" parent="1">
-          <mxGeometry x="235" y="240" width="410" height="30" as="geometry" />
+          <mxGeometry x="235" y="229" width="410" height="30" as="geometry" />
         </mxCell>
         <mxCell id="gloKL-8PmlSZp4hiJ1Q_-55" value="a" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=JetBrains Mono;fontSize=13;fontStyle=2" vertex="1" parent="1">
           <mxGeometry x="394" y="107" width="60" height="30" as="geometry" />
