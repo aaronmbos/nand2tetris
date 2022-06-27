@@ -44,5 +44,20 @@ CHIP ALU {
     PARTS:
     Mux16(a=x, b[0..15]=false, sel=zx, out=x1);
     Not16(in=x1, out=notx1);
-    Mux16(a=notx1, b=x1, sel=nx, out=x2);
-}
+    Mux16(a=x1, b=notx1, sel=nx, out=x2);
+
+    Mux16(a=y, b[0..15]=false, sel=zy, out=y1);
+    Not16(in=y1, out=noty1);
+    Mux16(a=y1, b=noty1, sel=ny, out=y2);
+
+    Add16(a=x2, b=y2, out=addxy);
+    And16(a=x2, b=y2, out=andxy);
+    Mux16(a=andxy, b=addxy, out=fout);
+
+    Not16(in=fout, out=nfout);
+    Mux16(a=fout, b=nfout, out=out);
+
+    // Using tempout for control outputs potentially
+    Mux16(a=fout,b=nfout, out=tempout);
+
+}   
