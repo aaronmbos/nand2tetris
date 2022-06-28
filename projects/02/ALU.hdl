@@ -42,22 +42,35 @@ CHIP ALU {
         ng; // 1 if (out < 0),  0 otherwise
 
     PARTS:
+    // if zx then x=0
     Mux16(a=x, b[0..15]=false, sel=zx, out=x1);
+    
+    // if nx then x=!x
     Not16(in=x1, out=notx1);
     Mux16(a=x1, b=notx1, sel=nx, out=x2);
-
+    
+    // if zy then y=0
     Mux16(a=y, b[0..15]=false, sel=zy, out=y1);
+    
+    // if ny then y=!y
     Not16(in=y1, out=noty1);
     Mux16(a=y1, b=noty1, sel=ny, out=y2);
 
+    // if f then out=x+y else out=x&y
     Add16(a=x2, b=y2, out=addxy);
     And16(a=x2, b=y2, out=andxy);
-    Mux16(a=andxy, b=addxy, out=fout);
+    Mux16(a=andxy, b=addxy, sel=f, out=fout);
 
+    // if no then out=!out
     Not16(in=fout, out=nfout);
-    Mux16(a=fout, b=nfout, out=out);
+    Mux16(a=fout, b=nfout, sel=no, out=out, out[0..7]=outR, out[8..15]=outL, out[15]=outMsb);
+    
+    // if out=0 then zr=1 else zr=0
+    Or8Way(in=outR, out=zrr);
+    Or8Way(in=outL, out=zrl);
+    Or(a=zrr, b=zrl, out=zrtemp);
+    Not(in=zrtemp, out=zr);
 
-    // Using tempout for control outputs potentially
-    Mux16(a=fout,b=nfout, out=tempout);
-
+    // if out<1 then ng=1 else ng=0
+    And(a=outMsb, b=true, out=ng);
 }   
