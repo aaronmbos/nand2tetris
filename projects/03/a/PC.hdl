@@ -16,5 +16,15 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    Inc16(in=wReg, out=wInc);
+
+    // if inc then inc
+    Mux16(a=wReg, b=wInc, sel=inc, out=wMux1);
+    // if load then in
+    Mux16(a=wMux1, b=in, sel=load, out=wMux2);
+    // if reset then 0
+    Mux16(a=wMux2, b=false, sel=reset, out=wMux3);
+
+    // Always load the combinational output for use on next cycle
+    Register(in=wMux3, load=true, out=out, out=wReg);
 }
