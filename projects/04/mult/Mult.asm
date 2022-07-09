@@ -9,4 +9,15 @@
 // This program only needs to handle arguments that satisfy
 // R0 >= 0, R1 >= 0, and R0*R1 < 32768.
 
-// Put your code here.
+// Assign variables
+// Need variable to store RAM[0], 1, 2 respectively
+// Begin loop
+// RAM[0] will be number added to itself
+// RAM[1] will be loop iteration
+// RAM[2] will be the product
+
+// while n <= RAM[1]
+// {
+//   RAM[2] = RAM[2] + [RAM0]
+// }
+
