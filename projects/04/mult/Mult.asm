@@ -11,6 +11,16 @@
 
 // Assign variables
 // Need variable to store RAM[0], 1, 2 respectively
+
+  @R1
+  D=M
+
+  @R0
+  D=M
+
+  @R2
+  D=MI
+
 // Begin loop
 // RAM[0] will be number added to itself
 // RAM[1] will be loop iteration
