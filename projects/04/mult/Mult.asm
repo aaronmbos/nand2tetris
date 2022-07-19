@@ -12,35 +12,38 @@
 // Assign variables
 // Need variable to store RAM[0], 1 respectively, sum
 
-  @R1
-  D=M
-  @x
-  M=D  // x = R1
+// Begin loop
+// RAM[0] will be number added to itself
+// RAM[1] will be loop iteration
+// RAM[2] will be the product
 
-  @R0
-  D=M
-  @y
-  M=D  // y = R0
+// for (i=0; i<RAM[1]; i++)
+// {
+//   RAM[2] = RAM[2] + RAM[0]
+// }
+
+  @i
+  M=0
 
   @sum
   M=0 
 
 (LOOP)
-  // if (i==x) goto END
+  // if (i==R1) goto END
   @i
   D=M
-  @x
+  @R1
   D=D-M
-  @STOP
+  @END
   D;JEQ
 
-  // sum = sum + y
+  // sum = sum + R0
   @sum
   D=M
-  @y
+  @R0
   D=D+M
   @sum
-  M=D // sum = sum + y
+  M=D 
 
   @i
   M=M+1
@@ -48,22 +51,12 @@
   @LOOP
   0;JMP
 
-(STOP)
+(END)
   @sum
   D=M
   @R2
   M=D // RAM[2] = sum
-
-(END)
+  
   @END
   0;JMP
-// Begin loop
-// RAM[0] will be number added to itself
-// RAM[1] will be loop iteration
-// RAM[2] will be the product
-
-// for (i=0; i<n; i++)
-// {
-//   RAM[2] = RAM[2] + [RAM0]
-// }
 
