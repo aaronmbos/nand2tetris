@@ -3,32 +3,68 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/04/Fill.asm
 
-// Runs an infinite loop that listens to the keyboard input.
+// Runs an infinite loop that listens to the keyboard input. 
 // When a key is pressed (any key), the program blackens the screen,
-// i.e. writes "black" in every pixel;
-// the screen should remain fully black as long as the key is pressed. 
-// When no key is pressed, the program clears the screen, i.e. writes
-// "white" in every pixel;
-// the screen should remain fully clear as long as no key is pressed.
-
-// Put your code here.
+// i.e. writes "black" in every pixel. When no key is pressed, the
+// program clears the screen, i.e. writes "white" in every pixel.
 
 (LOOP)
+  @SCREEN
+  D=A
+  @addr
+  M=D // addr = 16384 (screen's base address)
+
   @KBD
   D=M
 
   @KEYPRESS
   D;JGT
 
-  @SCREEN 
-  M=0
-
+  @KEYUP
+  D;JEQ
+  
   @LOOP
   0;JEQ
 
+(KEYUP)
+(CLEAR)
+  @addr
+  D=M
+  @KBD
+  D=D-A
+  @LOOP
+  D;JEQ
+  
+  @addr
+  A=M
+  M=0  // RAM[addr]=1111111111111111
+
+  @addr
+  M=M+1 // addr = addr + 32
+  @CLEAR
+  0;JMP
+
+  @LOOP
+  0;JMP
+
 (KEYPRESS)
-  @SCREEN
-  M=-1
+
+(DRAW)
+  @addr
+  D=M
+  @KBD
+  D=D-A
+  @LOOP
+  D;JEQ
+  
+  @addr
+  A=M
+  M=-1  // RAM[addr]=1111111111111111
+
+  @addr
+  M=M+1 // addr = addr + 32
+  @DRAW
+  0;JMP
 
   @LOOP
   0;JMP
