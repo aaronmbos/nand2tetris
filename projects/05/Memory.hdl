@@ -27,5 +27,6 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    // address[MSB] should be used to select RAM16, KBD, SCREEN 
+    // address[LSB] should be used to perform action within selected MSB chip
 }
