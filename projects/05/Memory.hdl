@@ -27,6 +27,12 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-    // address[MSB] should be used to select RAM16, KBD, SCREEN 
-    // address[LSB] should be used to perform action within selected MSB chip
+    DMux4Way(in=load, sel=address[13..14], a=RAM1, b=RAM2, c=scr, d=kbr);
+    Or(a=RAM1, b=RAM2, out=RAM);
+
+    RAM16K(in=in, load=RAM, address=address[0..13], out=RAMout);
+    Screen(in=in, load=scr, address=address[0..12], out=ScreenOut);
+    Keyboard(out=KeyboardOut);
+
+    Mux4Way16(a=RAMout, b=RAMout, c=ScreenOut, d=KeyboardOut, sel=address[13..14], out=out);
 }
