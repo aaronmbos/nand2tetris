@@ -10,6 +10,7 @@ const cCommand = "C_COMMAND";
 const destMap = createDestMap();
 const compMap = createCompMap();
 const jumpMap = createJumpMap();
+const symbolMap = createSymbolMap();
 
 parse(pathToFile);
 
@@ -22,25 +23,59 @@ function parse(filePath) {
 
     const asmLines = data.split("\r\n");
 
+    let romCount = 0;
+    // First pass
+    console.log("Starting first pass");
+    asmLines.forEach((input) => {
+      if (isCommand(input)) {
+        const line = sanitize(input);
+        const commandType = parseCommandType(line);
+
+        if (commandType === lCommand) {
+          const symbol = parseSymbol(line);
+          const value = createBinaryString(romCount);
+          console.log(`Adding pseudocommand: (${symbol},${value})`);
+          symbolMap.set(symbol, value);
+        } else {
+          romCount++;
+        }
+      }
+    });
+
+    let ramCount = 16;
     let hackData = [];
     asmLines.forEach((input) => {
       if (isCommand(input)) {
-        const l = sanitize(input);
+        const line = sanitize(input);
         let parsed = {};
-        parsed.commandType = parseCommandType(l);
+        parsed.commandType = parseCommandType(line);
 
-        if (
-          parsed.commandType === aCommand ||
-          parsed.commandType === lCommand
-        ) {
-          parsed.symbol = parseSymbol(l);
-        } else {
-          if (l.includes("=")) {
-            const parts = l.split("=");
+        if (parsed.commandType === lCommand) {
+          return;
+        }
+
+        if (parsed.commandType === aCommand) {
+          const symbol = parseSymbol(line);
+
+          if (!isNaN(symbol)) {
+            parsed.symbol = createBinaryString(Number(symbol));
+          } else {
+            if (symbolMap.has(symbol)) {
+              parsed.symbol = symbolMap.get(symbol);
+            } else {
+              symbolValue = createBinaryString(ramCount);
+              symbolMap.set(symbol, symbolValue);
+              parsed.symbol = symbolValue;
+              ramCount++;
+            }
+          }
+        } else if (parsed.commandType === cCommand) {
+          if (line.includes("=")) {
+            const parts = line.split("=");
             parsed.dest = parts[0];
             parsed.comp = parts[1];
-          } else if (l.includes(";")) {
-            const parts = l.split(";");
+          } else if (line.includes(";")) {
+            const parts = line.split(";");
             parsed.comp = parts[0];
             parsed.jump = parts[1];
           }
@@ -60,7 +95,7 @@ function parse(filePath) {
       hackData
         .map((x) =>
           x.symbol
-            ? createBinaryString(Number(x.symbol))
+            ? x.symbol
             : `111${x.aCode}${x.compCode}${x.destCode}${x.jumpCode}`
         )
         .join("\n"),
@@ -204,4 +239,6 @@ function createSymbolMap() {
   symbolMap.set("R15", createBinaryString(15));
   symbolMap.set("SCREEN", createBinaryString(16384));
   symbolMap.set("KBD", createBinaryString(24576));
+
+  return symbolMap;
 }
