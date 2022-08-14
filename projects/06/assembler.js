@@ -61,7 +61,7 @@ function parse(filePath) {
         .map((x) =>
           x.symbol
             ? createBinaryString(Number(x.symbol))
-            : `${x.destCode}/${x.compCode}/${x.jumpCode}`
+            : `111${x.aCode}${x.compCode}${x.destCode}${x.jumpCode}`
         )
         .join("\n"),
       (err) => {
@@ -176,4 +176,32 @@ function createCompMap() {
   compMap.set("D|M", "010101");
 
   return compMap;
+}
+
+function createSymbolMap() {
+  const symbolMap = new Map();
+
+  symbolMap.set("SP", createBinaryString(0));
+  symbolMap.set("LCL", createBinaryString(1));
+  symbolMap.set("ARG", createBinaryString(2));
+  symbolMap.set("THIS", createBinaryString(3));
+  symbolMap.set("THAT", createBinaryString(4));
+  symbolMap.set("R0", createBinaryString(0));
+  symbolMap.set("R1", createBinaryString(1));
+  symbolMap.set("R2", createBinaryString(2));
+  symbolMap.set("R3", createBinaryString(3));
+  symbolMap.set("R4", createBinaryString(4));
+  symbolMap.set("R5", createBinaryString(5));
+  symbolMap.set("R6", createBinaryString(6));
+  symbolMap.set("R7", createBinaryString(7));
+  symbolMap.set("R8", createBinaryString(8));
+  symbolMap.set("R9", createBinaryString(9));
+  symbolMap.set("R10", createBinaryString(10));
+  symbolMap.set("R11", createBinaryString(11));
+  symbolMap.set("R12", createBinaryString(12));
+  symbolMap.set("R13", createBinaryString(13));
+  symbolMap.set("R14", createBinaryString(14));
+  symbolMap.set("R15", createBinaryString(15));
+  symbolMap.set("SCREEN", createBinaryString(16384));
+  symbolMap.set("KBD", createBinaryString(24576));
 }
